@@ -1,4 +1,4 @@
-name: Publish Manuscript
+name: Create issue
 
 on:
   workflow_dispatch:
