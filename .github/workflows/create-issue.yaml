@@ -1,0 +1,33 @@
+name: Publish Manuscript
+
+on:
+  workflow_dispatch:
+    inputs:
+      doi:
+        description: "Digital Object Identifier (DOI)"
+        required: true
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  create-doi-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create Issue
+      uses: actions/github-script@v2
+      with:
+        script: |
+          const response = await octokit.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: inputs.doi,
+            body: "This issue is created with the DOI provided as input."
+          })
+          console.log(`Created issue with ID ${response.data.id}`)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
