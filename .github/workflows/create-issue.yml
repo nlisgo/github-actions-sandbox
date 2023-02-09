@@ -13,7 +13,8 @@ env:
 jobs:
   create-doi-issue:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      repository-projects: write
 
     steps:
     - name: Checkout repository
@@ -30,4 +31,4 @@ jobs:
         project-type: user
         project: 1
         column: Todo
-        token: ${{ secrets.PAT }}
+        token: ${{ env.GITHUB_TOKEN }}
