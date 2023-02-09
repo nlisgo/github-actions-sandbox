@@ -30,7 +30,7 @@ jobs:
 
           Add things to discuss below
         project-type: repository
-        project: 2
+        project: 3
         column: Todo
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
