@@ -18,9 +18,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Create Issue
-      uses: actions-ecosystem/action-create-issue@v1
+    - name: Create issue
+      uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
       with:
-        github_token: ${{ env.GITHUB_TOKEN }}
-        title: ${{ github.event.inputs.doi }}
-        body: my new issue
+        title: "Publish manuscript ${{ github.event.inputs.doi }}"
+        body: |
+          ### Test body title
+
+          Add things to discuss below
+      env:
+        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
