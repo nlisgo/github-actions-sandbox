@@ -20,7 +20,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Create issue
+    - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
         title: "Publish manuscript ${{ github.event.inputs.doi }}"
@@ -28,7 +28,6 @@ jobs:
           ### Test body title
 
           Add things to discuss below
-        project: 1
-        column: 1
+        project-v2-path: users/nlisgo/projects/1
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
