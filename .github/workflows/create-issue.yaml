@@ -13,8 +13,7 @@ env:
 jobs:
   create-doi-issue:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+    permissions: write-all
 
     steps:
     - name: Checkout repository
