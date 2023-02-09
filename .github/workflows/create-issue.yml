@@ -25,11 +25,14 @@ jobs:
       with:
         path: .github/ISSUE_TEMPLATE/publish_manuscript.md
 
+    - name: Replace DOI placeholder
+      run: |
+        body=$(echo "${{ steps.extract.outputs.body }}" | sed "s/\[DOI\]/{{ github.event.inputs.doi }}/g")
+
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
         title: "${{ steps.extract.outputs.title }}"
-        body: |
-          ${{ steps.extract.outputs.body | replace("[DOI]", github.event.inputs.doi) }}
+        body: "$body"
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
