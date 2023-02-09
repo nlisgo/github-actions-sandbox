@@ -28,7 +28,8 @@ jobs:
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
-        title: ${{ steps.extract.outputs.title | replace("[DOI]", github.event.inputs.doi) }}
-        body: ${{ steps.extract.outputs.body | replace("[DOI]", github.event.inputs.doi) }}
+        title: "${{ steps.extract.outputs.title }}"
+        body: |
+          ${{ steps.extract.outputs.body | replace("[DOI]", github.event.inputs.doi) }}
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
