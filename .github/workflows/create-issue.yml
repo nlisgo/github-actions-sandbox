@@ -31,4 +31,5 @@ jobs:
         project-type: user
         project: 1
         column: Todo
-        token: ${{ env.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
