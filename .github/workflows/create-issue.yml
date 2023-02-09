@@ -28,8 +28,5 @@ jobs:
           ### Test body title
 
           Add things to discuss below
-        project-type: user
-        project: 1
-        column: Todo
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
