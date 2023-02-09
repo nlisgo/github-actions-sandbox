@@ -30,5 +30,4 @@ jobs:
         project-type: user
         project: 1
         column: Todo
-      env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
