@@ -1,11 +1,11 @@
+name: "Create issue: Publish manuscript"
+
 on:
   workflow_dispatch:
     inputs:
       doi:
         description: "Digital Object Identifier (DOI)"
         required: true
-
-name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
