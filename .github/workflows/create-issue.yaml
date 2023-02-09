@@ -28,5 +28,7 @@ jobs:
           ### Test body title
 
           Add things to discuss below
+        project-v2-path: users/nlisgo/projects/1
+        column: 1
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
