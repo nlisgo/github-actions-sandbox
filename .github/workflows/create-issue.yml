@@ -15,19 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      repository-projects: write
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - uses: imjohnbo/extract-issue-template-fields@v1
+      id: extract
+      with:
+        path: .github/ISSUE_TEMPLATE/publish_manuscript.md
+
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
-        title: "Publish manuscript ${{ github.event.inputs.doi }}"
-        body: |
-          ### Test body title
-
-          Add things to discuss below
+        title: ${{ steps.extract.outputs.body }}
+        body: ${{ steps.extract.outputs.body }}
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
