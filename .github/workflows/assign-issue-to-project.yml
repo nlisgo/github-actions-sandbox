@@ -4,12 +4,18 @@ on:
   issues:
     types: [opened]
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
-  createCard:
+  add-issues-to-project-board:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Create or Update Project Card
-        uses: peter-evans/create-or-update-project-card@v2
-        with:
-          project-name: nlisgo test project
-          column-name: Todo
+    - name: Add issue to project board
+      uses: peter-evans/add-to-project-board@v2
+      with:
+        github-token: ${{ env.GITHUB_TOKEN }}
+        project-id: 3
+        column-name: Todo
+        issue-number: ${{ github.event.issue.number }}
