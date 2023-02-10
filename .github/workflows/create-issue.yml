@@ -7,9 +7,6 @@ on:
         description: "Digital Object Identifier (DOI)"
         required: true
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   create-doi-issue:
     runs-on: ubuntu-latest
@@ -42,7 +39,3 @@ jobs:
       with:
         title: "${{ steps.sub-title.outputs.result }}"
         body: "${{ steps.sub-body.outputs.result }}"
-        project-type: user
-        project: 3
-        column: Todo
-        token: ${{ secrets.PAT }}
