@@ -32,20 +32,23 @@ Who can help: @fred-atherden, @nlisgo, @scottaubrey
 
 - [ ] Manuscript is available for preview (https://prod--epp.elifesciences.org/preview/%%doi-prefix%%/%%doi-suffix%%)
 
-```
-git clone git@github.com:elifesciences/enhanced-preprints-data.git
-cd enhanced-preprints-data
-git checkout -b import-%%doi-suffix%% origin/master
-./scripts/fetch_meca_archive.sh %%doi-suffix%% incoming/
-./scripts/extract_mecas.sh mecas/ data/
-rm -rf incoming/
-git add .
-git commit -m 'incoming-%%doi-suffix%%'
-git push -u origin import-%%doi-suffix%%
-```
+<details>
+    <summary>Instructions</summary>
+    ```
+    git clone git@github.com:elifesciences/enhanced-preprints-data.git
+    cd enhanced-preprints-data
+    git checkout -b import-%%doi-suffix%% origin/master
+    ./scripts/fetch_meca_archive.sh %%doi-suffix%% incoming/
+    ./scripts/extract_mecas.sh mecas/ data/
+    rm -rf incoming/
+    git add .
+    git commit -m 'incoming-%%doi-suffix%%'
+    git push -u origin import-%%doi-suffix%%
+    ```
 
-Create pull request: https://github.com/elifesciences/enhance/compare/master...import-%%doi-suffix%%
+    Create pull request: https://github.com/elifesciences/enhance/compare/master...import-%%doi-suffix%%
 
-Merge in after CI passes and reviewing changes.
+    Merge in after CI passes and reviewing changes.
 
-Manuscript should be available for preview shortly afterwards.
+    Manuscript should be available for preview shortly afterwards.
+</details>
