@@ -26,14 +26,19 @@ jobs:
         path: .github/ISSUE_TEMPLATE/publish_manuscript.md
 
     - uses: bluwy/substitute-string-action@v1
-      id: sub
+      id: sub-title
       with:
         _input-text: "${{ steps.extract.outputs.title }}"
+        '[DOI]': "${{ github.event.inputs.doi }}"
+
+    - uses: bluwy/substitute-string-action@v1
+      id: sub-body
+      with:
+        _input-text: "${{ steps.extract.outputs.body }}"
         '[DOI]': "${{ github.event.inputs.doi }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
-        title: "${{ steps.sub.outputs.result }}"
-        body: |
-          Having issues
+        title: "${{ steps.sub-title.outputs.result }}"
+        body: "${{ steps.sub-body.outputs.result }}"
