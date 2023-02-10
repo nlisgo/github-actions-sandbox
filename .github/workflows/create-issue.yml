@@ -36,4 +36,4 @@ jobs:
       with:
         title: "${{ steps.replace.outputs.TITLE }}"
         body: |
-          "${{ steps.replace.outputs.BODY }}"
+          Having issues
