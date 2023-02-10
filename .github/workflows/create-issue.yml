@@ -57,5 +57,5 @@ jobs:
         labels: ${{ steps.extract.outputs.labels }}
         title: "${{ steps.title.outputs.result }}"
         body: "${{ steps.body.outputs.result }}"
-        project-v2-path: users/nlisgo/projects/3
+        project-v2-path: users/nlisgo/projects/4
         token: ${{ secrets.PAT }}
