@@ -1,0 +1,15 @@
+name: "Assign issue to project"
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  createCard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or Update Project Card
+        uses: peter-evans/create-or-update-project-card@v2
+        with:
+          project-name: nlisgo test project
+          column-name: Todo
