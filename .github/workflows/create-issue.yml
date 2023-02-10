@@ -35,4 +35,5 @@ jobs:
       uses: imjohnbo/issue-bot@v3
       with:
         title: "${{ steps.replace-doi.outputs.TITLE }}"
-        body: "${{ steps.replace-doi.outputs.BODY }}"
+        body: |
+          ${{ steps.replace-doi.outputs.BODY }}
