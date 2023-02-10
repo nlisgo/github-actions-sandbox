@@ -27,13 +27,11 @@ jobs:
 
     - name: Replace DOI placeholder
       run: |
-        echo "::set-env name=TITLE::$(echo "${{ steps.extract.outputs.title }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')"
-        echo "::set-env name=BODY::$(echo "${{ steps.extract.outputs.body }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')"
+        echo "TITLE=$(echo "${{ steps.extract.outputs.title }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_ENV
+        echo "BODY=$(echo "${{ steps.extract.outputs.body }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_ENV
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
         title: "${{ env.TITLE }}"
         body: "${{ env.BODY }}"
-      env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
