@@ -26,12 +26,13 @@ jobs:
         path: .github/ISSUE_TEMPLATE/publish_manuscript.md
 
     - name: Replace DOI placeholder
+      id: replace-doi
       run: |
-        echo "TITLE=$(echo "${{ steps.extract.outputs.title }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_ENV
-        echo "BODY=$(echo "${{ steps.extract.outputs.body }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_ENV
+        echo "TITLE=$(echo "${{ steps.extract.outputs.title }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_OUTPUT
+        echo "BODY=$(echo "${{ steps.extract.outputs.body }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_OUTPUT
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
-        title: "${{ env.TITLE }}"
-        body: "${{ env.BODY }}"
+        title: "${{ steps.replace-doi.outputs.TITLE }}"
+        body: "${{ steps.replace-doi.outputs.BODY }}"
