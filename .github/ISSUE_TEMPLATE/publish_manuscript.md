@@ -1,15 +1,15 @@
 ---
 name: Publish manuscript
 about: Use this template for tracking publication of manuscripts.
-title: "Publish manuscript [DOI]"
+title: "Publish manuscript %%doi%%"
 labels: epp, needs triage
 assignees: nlisgo
 ---
 
 ### Test body title
 
-Add things to discuss below [DOI]
+Add things to discuss below %%doi%%
 
-Here is another [DOI] mention
+Here is another %%doi%% mention
 
-[Check there are public reviews available](https://sciety.org/articles/activity/[DOI])
+[Check there are public reviews available](https://sciety.org/articles/activity/%%doi%%)

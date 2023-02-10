@@ -26,13 +26,15 @@ jobs:
       id: sub-title
       with:
         _input-text: "${{ steps.extract.outputs.title }}"
-        '[DOI]': "${{ github.event.inputs.doi }}"
+        _format-key: '%%key%%'
+        doi: "${{ github.event.inputs.doi }}"
 
     - uses: bluwy/substitute-string-action@v1
       id: sub-body
       with:
         _input-text: "${{ steps.extract.outputs.body }}"
-        '[DOI]': "${{ github.event.inputs.doi }}"
+        _format-key: '%%key%%'
+        doi: "${{ github.event.inputs.doi }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
