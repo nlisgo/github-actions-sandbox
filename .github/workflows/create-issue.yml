@@ -39,3 +39,5 @@ jobs:
       with:
         title: "${{ steps.sub-title.outputs.result }}"
         body: "${{ steps.sub-body.outputs.result }}"
+        project-v2-path: users/nlisgo/projects/3
+        token: ${{ secrets.PAT }}
