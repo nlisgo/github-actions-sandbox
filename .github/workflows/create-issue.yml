@@ -25,15 +25,15 @@ jobs:
       with:
         path: .github/ISSUE_TEMPLATE/publish_manuscript.md
 
-    - name: Replace DOI placeholder
-      id: replace
-      run: |
-        echo "TITLE=$(echo "${{ steps.extract.outputs.title }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_OUTPUT
-        echo "BODY=$(echo "${{ steps.extract.outputs.body }}" | sed 's/\[DOI\]/${{ github.event.inputs.doi }}/g')" >> $GITHUB_OUTPUT
+    - uses: bluwy/substitute-string-action@v1
+      id: sub
+      with:
+        _input-text: "${{ steps.extract.outputs.title }}"
+        '[DOI]': "${{ github.event.inputs.doi }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
       with:
-        title: "${{ steps.replace.outputs.TITLE }}"
+        title: "${{ steps.sub.outputs.result }}"
         body: |
           Having issues
