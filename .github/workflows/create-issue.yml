@@ -4,14 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       msid:
-        description: "Manuscript ID (MSID)"
+        description: "Manuscript ID (e.g. 84855)"
         required: true
-      doi:
-        description: "Digital Object Identifier (DOI)"
+      doi-prefix:
+        description: "DOI prefix (e.g. 10.1101)"
         required: true
       doi-suffix:
-        description: "DOI suffix (e.g. v1)"
+        description: "DOI suffix (e.g. 2021.06.21.449261)"
         required: true
+      doi-suffix2:
+        description: "DOI suffix2 (e.g. v1)"
 
 jobs:
   create-doi-issue:
@@ -33,15 +35,19 @@ jobs:
       with:
         _input-text: "${{ steps.extract.outputs.title }}"
         _format-key: '%%key%%'
-        doi: "${{ github.event.inputs.doi }}"
+        doi-prefix: "${{ github.event.inputs.doi-prefix }}"
+        doi-suffix: "${{ github.event.inputs.doi-suffix }}"
+        doi-suffix2: "${{ github.event.inputs.doi-suffix2 }}"
+        msid: "${{ github.event.inputs.msid }}"
 
     - uses: bluwy/substitute-string-action@v2
       id: body
       with:
         _input-text: "${{ steps.extract.outputs.body }}"
         _format-key: '%%key%%'
-        doi: "${{ github.event.inputs.doi }}"
+        doi-prefix: "${{ github.event.inputs.doi-prefix }}"
         doi-suffix: "${{ github.event.inputs.doi-suffix }}"
+        doi-suffix2: "${{ github.event.inputs.doi-suffix2 }}"
         msid: "${{ github.event.inputs.msid }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
