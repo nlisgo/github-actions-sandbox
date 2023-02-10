@@ -3,8 +3,14 @@ name: "Create issue: Publish manuscript"
 on:
   workflow_dispatch:
     inputs:
+      msid:
+        description: "Manuscript ID (MSID)"
+        required: true
       doi:
         description: "Digital Object Identifier (DOI)"
+        required: true
+      doi-suffix:
+        description: "DOI suffix (e.g. v1)"
         required: true
 
 jobs:
@@ -35,6 +41,8 @@ jobs:
         _input-text: "${{ steps.extract.outputs.body }}"
         _format-key: '%%key%%'
         doi: "${{ github.event.inputs.doi }}"
+        doi-suffix: "${{ github.event.inputs.doi-suffix }}"
+        msid: "${{ github.event.inputs.msid }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
