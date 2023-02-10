@@ -22,15 +22,15 @@ jobs:
       with:
         path: .github/ISSUE_TEMPLATE/publish_manuscript.md
 
-    - uses: bluwy/substitute-string-action@v1
-      id: sub-title
+    - uses: bluwy/substitute-string-action@v2
+      id: title
       with:
         _input-text: "${{ steps.extract.outputs.title }}"
         _format-key: '%%key%%'
         doi: "${{ github.event.inputs.doi }}"
 
-    - uses: bluwy/substitute-string-action@v1
-      id: sub-body
+    - uses: bluwy/substitute-string-action@v2
+      id: body
       with:
         _input-text: "${{ steps.extract.outputs.body }}"
         _format-key: '%%key%%'
@@ -41,7 +41,7 @@ jobs:
       with:
         assignees: ${{ steps.extract.outputs.assignees }}
         labels: ${{ steps.extract.outputs.labels }}
-        title: "${{ steps.sub-title.outputs.result }}"
-        body: "${{ steps.sub-body.outputs.result }}"
+        title: "${{ steps.title.outputs.result }}"
+        body: "${{ steps.body.outputs.result }}"
         project-v2-path: users/nlisgo/projects/3
         token: ${{ secrets.PAT }}
