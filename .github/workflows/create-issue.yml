@@ -7,8 +7,8 @@ on:
         description: "Manuscript ID (e.g. 84855)"
         required: true
       doi-prefix:
-        description: "DOI prefix (e.g. 10.1101)"
-        required: true
+        description: "DOI prefix (default: 10.1101)"
+        default: "10.1101"
       doi-suffix:
         description: "DOI suffix (e.g. 2021.06.21.449261)"
         required: true
