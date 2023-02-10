@@ -42,3 +42,6 @@ jobs:
       with:
         title: "${{ steps.sub-title.outputs.result }}"
         body: "${{ steps.sub-body.outputs.result }}"
+        project-v2-type: users/nlisgo/projects/3
+        column: Todo
+        token: ${{ secrets.PAT }}
