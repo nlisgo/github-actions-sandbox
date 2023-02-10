@@ -1,4 +1,9 @@
 ---
+name: Publish manuscript
+about: Use this template for tracking publication of manuscripts.
+title: "Publish manuscript [DOI]"
+labels: epp, needs triage
+assignees: nlisgo
 title: "Publish manuscript [DOI]"
 ---
 
