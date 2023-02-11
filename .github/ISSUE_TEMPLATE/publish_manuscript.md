@@ -61,6 +61,8 @@ Manuscript should be available for preview shortly afterwards.
 
 ## Step 3: Awaiting public reviews
 
+Who can help: Editorial team
+
 - [ ] Public reviews available on sciety (https://sciety.org/articles/activity/%%doi-prefix%%/%%doi-suffix%%)
 - [ ] Manuscript and editor details at the top of this issue (Supplied by Editorial team)
 
@@ -99,7 +101,7 @@ Post the following to the [#sciety-general](https://elifesciences.slack.com/arch
 ```
 Please can you provide a DocMap for:
 
-- [LINK TO THIS GITHUB ISSUE] (%%doi-prefix%%/%%doi-suffix%%)
+- %%issue-url%% (%%doi-prefix%%/%%doi-suffix%%)
 
 Thank you
 ```
@@ -109,11 +111,57 @@ Thank you
 - [ ] Reviewed preprint is published to EPP (https://prod--epp.elifesciences.org/reviewed-preprints/%%msid%%)
     - [ ] Pull request created to [enhanced-preprint-client](https://github.com/elifesciences/enhanced-preprints-client/pulls)
 
+<details>
+<summary>Instructions</summary>
+
+Visit: https://github.com/elifesciences/enhanced-preprints-client/edit/master/manuscripts.json
+Introduce the following in the `preprints` block:
+
+```
+"%%doi-prefix%%/%%doi-suffix%%": {
+    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%",
+    "status": {
+    "articleType": "Reviewed Preprint",
+    "status": "This Reviewed Preprint was published after peer review and assessment by eLife.",
+    "timeline": [
+        { "name": "Reviewed Preprint posted", "date": "[dateReviewedPreprint]" },
+        { "name": "Sent for peer review", "date": "[dateSentForPeerReview]" },
+        { "name": "Posted to [preprintServer]", "date": "[datePostedToPreprintServer]", "link": { "url": "[urlPostedOnPreprintServer]", "text": "Go to [preprintServer]" } }
+    ]
+    },
+    "msas": [msa]
+}
+```
+
+Introduce the following to the `manuscripts` block:
+
+```
+"%%msid%%": {
+    "msid": "%%msid%%",
+    "version": "1",
+    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%"
+}
+```
+
+and
+
+```
+"%%msid%%v1": {
+    "msid": "%%msid%%",
+    "version": "1",
+    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%"
+}
+```
+
 Example pull request: https://github.com/elifesciences/enhanced-preprints-client/pull/334/files
+
+Create a new branch for this commit and start a pull request.
 
 We are working on a github action to allow anyone to create the pull request.
 
 Once the pull request is merged in it should be available a few minutes later.
+
+</details>
 
 ## Step 6: Awaiting search reindex
 
@@ -144,7 +192,7 @@ Upload the file `%%doi-suffix%%.pdf` and commit directly to the master branch
 
 </details>
 
-## Step 9: Modify manuscripts.json (PDF only)
+## Step 9: Add PDF url to manuscripts.json
 
 - [ ] Reviewed preprint PDF is available for download (https://prod--epp.elifesciences.org/reviewed-preprints/%%msid%%)
     - [ ] Pull request created to [enhanced-preprint-client](https://github.com/elifesciences/enhanced-preprints-client/pulls)
@@ -159,6 +207,14 @@ Introduce the following in the `preprints > %%doi-prefix%%/%%doi-suffix%%` block
 "pdfUrl": "https://github.com/elifesciences/enhanced-preprints-data/raw/master/data/%%doi-prefix%%/%%doi-suffix%%/%%doi-suffix%%.pdf"
 ```
 
-Create a new branch for this commit and start a pull request
+Example pull request: https://github.com/elifesciences/enhanced-preprints-client/pull/379/files
+
+Create a new branch for this commit and start a pull request.
+
+We are working on a github action to allow anyone to create the pull request.
+
+Once the pull request is merged in it should be available a few minutes later.
 
 </details>
+
+## Step 10: Done!

@@ -1,0 +1,28 @@
+name: Add issue link to description
+
+on:
+  issues:
+    type: opened
+
+jobs:
+  add_link:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - uses: bluwy/substitute-string-action@v2
+        id: body
+        with:
+          _input-text: "${{ github.event.issue.body }}"
+          _format-key: '%%key%%'
+          issue-url: "${{ github.event.issue.html_url }}"
+
+      - name: Update issue description
+        uses: peter-evans/update-issue-description@v1
+        with:
+          description: |
+            ${{ steps.body.outputs.result }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
