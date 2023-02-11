@@ -44,15 +44,15 @@ Pull request: [PLACE LINK TO PULL REQUEST HERE]
 <summary>Instructions</summary>
 
 ```
-git clone git@github.com:elifesciences/enhanced-preprints-data.git
-cd enhanced-preprints-data
-git checkout -b import-%%doi-suffix%% origin/master
-./scripts/fetch_meca_archive.sh %%doi-suffix%% incoming/
-./scripts/extract_mecas.sh mecas/ data/
-rm -rf incoming/
-git add .
-git commit -m 'import-%%doi-suffix%%'
-git push -u origin import-%%doi-suffix%%
+$ git clone git@github.com:elifesciences/enhanced-preprints-data.git
+$ cd enhanced-preprints-data
+$ git checkout -b import-%%doi-suffix%% origin/master
+$ ./scripts/fetch_meca_archive.sh %%doi-suffix%% incoming/
+$ ./scripts/extract_mecas.sh incoming/ data/
+$ rm -rf incoming/
+$ git add .
+$ git commit -m 'import-%%doi-suffix%%'
+$ git push -u origin import-%%doi-suffix%%
 ```
 
 Create pull request: https://github.com/elifesciences/enhance/compare/master...import-%%doi-suffix%%
@@ -60,6 +60,15 @@ Create pull request: https://github.com/elifesciences/enhance/compare/master...i
 Merge in after CI passes and reviewing changes.
 
 Manuscript should be available for preview shortly afterwards.
+
+an example with multiple:
+
+```
+$ for doi in 2022.06.17.496451 2022.10.29.514266; do ./scripts/fetch_meca_archive.sh $doi incoming/; done
+$ ./scripts/extract_mecas.sh incoming/ data/
+$ rm -rf incoming/
+$ for doi in 2022.06.17.496451 2022.10.29.514266; do git checkout --no-track -b "import-$doi" origin/master; git add data/10.1101/$doi/.; git commit -m "import-$doi"; git push origin "import-$doi"; done; git checkout master;
+```
 </details>
 
 ## Step 3: Awaiting public reviews
