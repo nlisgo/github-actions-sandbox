@@ -179,9 +179,9 @@ Once the pull request is merged in it should be available a few minutes later.
 The search reindex is triggered once an hour. We need the reviewed preprint to be indexed as the search application serves the journal homepage.
 
 <details>
-<summary>Reindex pipeline</summary>
+<summary>Additional info</summary>
 
-The jenkins pipeline to reindex reviewed preprints runs hourly. If needed, it can be triggered sooner.
+If needed, the jenkins pipeline to reindex search can be triggered sooner.
 
 https://alfred.elifesciences.org/job/process/job/process-reindex-reviewed-preprints/
 
