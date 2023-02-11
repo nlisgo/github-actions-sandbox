@@ -20,11 +20,9 @@ jobs:
           issue-url: "${{ github.event.issue.html_url }}"
 
       - name: Update issue description
-        uses: actions/github@v2
+        uses: actions/github@v1
         with:
-          ref: main
-          path: .github/workflows/main.yml
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          issue-body: |
+          body: |
             ${{ steps.body.outputs.result }}
