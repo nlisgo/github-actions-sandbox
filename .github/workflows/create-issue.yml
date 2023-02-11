@@ -26,8 +26,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Get issue number
+      id: issue
       run: |
-        echo "ISSUE_NUMBER=$(curl --silent -H "Accept: application/vnd.github+json" https://api.github.com/repos/nlisgo/github-actions-sandbox/issues?state=all | jq -r '.[0].number' | expr "$(cat)" + 1)" >> GITHUB_ENV
+        echo "ISSUE_NUMBER=$(curl --silent -H "Accept: application/vnd.github+json" https://api.github.com/repos/nlisgo/github-actions-sandbox/issues?state=all | jq -r '.[0].number' | expr "$(cat)" + 1)" >> $GITHUB_ENV
 
     - uses: imjohnbo/extract-issue-template-fields@v1
       id: extract
