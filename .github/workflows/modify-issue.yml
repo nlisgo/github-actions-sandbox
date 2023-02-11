@@ -26,6 +26,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           update-mode: replace
-          body: |
-            |
+          body: |-
             ${{ steps.body.outputs.result }}

@@ -49,6 +49,8 @@ jobs:
         doi-suffix: "${{ github.event.inputs.doi-suffix }}"
         doi-suffix2: "${{ github.event.inputs.doi-suffix2 }}"
         msid: "${{ github.event.inputs.msid }}"
+        owner: ${{ github.repository_owner }}
+        repo: ${{ github.repository }}
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
