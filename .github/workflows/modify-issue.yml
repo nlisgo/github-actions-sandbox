@@ -20,9 +20,13 @@ jobs:
           issue-url: "${{ github.event.issue.html_url }}"
 
       - name: Update issue description
-        uses: actions/github@v1
+        uses: actions-cool/issues-helper@v3
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          actions: update-issue
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
+          update-mode: replace
           body: |
             ${{ steps.body.outputs.result }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
