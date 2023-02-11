@@ -16,7 +16,7 @@ Who can help: @QueenKraken, @nlisgo, @scottaubrey
 
 - [ ] Manuscript is in data hub index (https://data-hub-api.elifesciences.org/enhanced-preprints/docmaps/v1/get-by-doi?preprint_doi=%%doi-prefix%%%2F%%doi-suffix%%)
 
-or
+or (only one should be ticked. remove other from description.)
 
 - [ ] Confirmed with Ted at bioRxiv that MECA archive is available
 
