@@ -36,6 +36,9 @@ Who can help: @fred-atherden, @nlisgo, @scottaubrey
 
 - [ ] Manuscript is available for preview (https://prod--epp.elifesciences.org/preview/%%doi-prefix%%/%%doi-suffix%%)
     - [ ] Pull request created to [enhanced-preprint-data](https://github.com/elifesciences/enhanced-preprints-data/pulls)
+    - [ ] Post link to pull request below
+
+Pull request: [PLACE LINK TO PULL REQUEST HERE]
 
 <details>
 <summary>Instructions</summary>
@@ -95,6 +98,9 @@ University of California, Berkeley, United States
 ## Step 4: Request DocMap creation
 
 - [ ] DocMap prepared by sciety
+    - [ ] Post link to [#sciety-general](https://elifesciences.slack.com/archives/C011EQLKP51) comment below
+
+[#sciety-general](https://elifesciences.slack.com/archives/C011EQLKP51) comment thread: [PLACE LINK TO COMMENT HERE]
 
 Post the following to the [#sciety-general](https://elifesciences.slack.com/archives/C011EQLKP51) on slack:
 
@@ -110,6 +116,9 @@ Thank you
 
 - [ ] Reviewed preprint is published to EPP (https://prod--epp.elifesciences.org/reviewed-preprints/%%msid%%)
     - [ ] Pull request created to [enhanced-preprint-client](https://github.com/elifesciences/enhanced-preprints-client/pulls)
+    - [ ] Post link to pull request below
+
+Pull request: [PLACE LINK TO PULL REQUEST HERE]
 
 <details>
 <summary>Instructions</summary>
@@ -172,6 +181,9 @@ The search reindex is triggered once an hour. We need the reviewed preprint to b
 ## Step 7: Published! Request PDF generation
 
 - [ ] Post the link to the PDF url at the top of the issue
+    - [ ] Post link to [#sciety-general](https://elifesciences.slack.com/archives/C011EQLKP51) comment below
+
+[#sciety-general](https://elifesciences.slack.com/archives/C011EQLKP51) comment thread: [PLACE LINK TO COMMENT HERE]
 
 Post the following to the [#enhanced-preprint](https://elifesciences.slack.com/archives/C03EVJSUA77) on slack:
 
@@ -196,6 +208,9 @@ Upload the file `%%doi-suffix%%.pdf` and commit directly to the master branch
 
 - [ ] Reviewed preprint PDF is available for download (https://prod--epp.elifesciences.org/reviewed-preprints/%%msid%%)
     - [ ] Pull request created to [enhanced-preprint-client](https://github.com/elifesciences/enhanced-preprints-client/pulls)
+    - [ ] Post link to pull request below
+
+[PLACE LINK TO PULL REQUEST HERE]
 
 <details>
 <summary>Instructions</summary>
@@ -218,3 +233,5 @@ Once the pull request is merged in it should be available a few minutes later.
 </details>
 
 ## Step 10: Done!
+
+- [ ] Put the kettle on!
