@@ -243,4 +243,4 @@ Once the pull request is merged in it should be available a few minutes later.
 
 ## Step 10: Done!
 
-- [ ] Put the kettle on!
+- [ ] Kettle is on!
