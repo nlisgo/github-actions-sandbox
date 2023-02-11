@@ -101,7 +101,7 @@ Post the following to the [#sciety-general](https://elifesciences.slack.com/arch
 ```
 Please can you provide a DocMap for:
 
-- https://github.com/%%owner%%/%%repo%%/issues/{{newIssueNumber}} (%%doi-prefix%%/%%doi-suffix%%)
+- https://github.com/%%repo%%/issues/%%issue-id%% (%%doi-prefix%%/%%doi-suffix%%)
 
 Thank you
 ```

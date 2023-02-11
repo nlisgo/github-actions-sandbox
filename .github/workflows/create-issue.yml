@@ -25,6 +25,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Get issue number
+      run: |
+        echo "NUMBER=$(curl --silent -H \"Accept: application/vnd.github+json\" https://api.github.com/repos/nlisgo/github-actions-sandbox/issues?state=all | jq -r '.[0].number' | expr \"$(cat)\" + 1)" >> $GITHUB_OUTPUT
+      id: issue
+
     - uses: imjohnbo/extract-issue-template-fields@v1
       id: extract
       with:
@@ -49,8 +54,8 @@ jobs:
         doi-suffix: "${{ github.event.inputs.doi-suffix }}"
         doi-suffix2: "${{ github.event.inputs.doi-suffix2 }}"
         msid: "${{ github.event.inputs.msid }}"
-        owner: ${{ github.repository_owner }}
-        repo: ${{ github.repository }}
+        repo: "${{ github.repository }}"
+        issue-id: "${{ steps.issue.outputs.NUMBER }}"
 
     - name: "Create issue: Publish manuscript ${{ github.event.inputs.doi }}"
       uses: imjohnbo/issue-bot@v3
