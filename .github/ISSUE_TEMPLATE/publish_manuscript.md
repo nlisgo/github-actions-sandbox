@@ -51,7 +51,7 @@ git checkout -b import-%%doi-suffix%% origin/master
 ./scripts/extract_mecas.sh mecas/ data/
 rm -rf incoming/
 git add .
-git commit -m 'incoming-%%doi-suffix%%'
+git commit -m 'import-%%doi-suffix%%'
 git push -u origin import-%%doi-suffix%%
 ```
 
