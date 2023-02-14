@@ -132,50 +132,12 @@ Pull request: [PLACE LINK TO PULL REQUEST HERE]
 <details>
 <summary>Instructions</summary>
 
-Visit: https://github.com/elifesciences/enhanced-preprints-client/edit/master/manuscripts.json
-Introduce the following in the `preprints` block:
-
-```
-"%%doi-prefix%%/%%doi-suffix%%": {
-    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%",
-    "status": {
-    "articleType": "Reviewed Preprint",
-    "status": "This Reviewed Preprint was published after peer review and assessment by eLife.",
-    "timeline": [
-        { "name": "Reviewed Preprint posted", "date": "[dateReviewedPreprint]" },
-        { "name": "Sent for peer review", "date": "[dateSentForPeerReview]" },
-        { "name": "Posted to [preprintServer]", "date": "[datePostedToPreprintServer]", "link": { "url": "[urlPostedOnPreprintServer]", "text": "Go to [preprintServer]" } }
-    ]
-    },
-    "msas": [msa]
-}
-```
-
-Introduce the following to the `manuscripts` block:
-
-```
-"%%msid%%": {
-    "msid": "%%msid%%",
-    "version": "1",
-    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%"
-}
-```
-
-and
-
-```
-"%%msid%%v1": {
-    "msid": "%%msid%%",
-    "version": "1",
-    "preprintDoi": "%%doi-prefix%%/%%doi-suffix%%"
-}
-```
+- Visit: https://github.com/elifesciences/enhanced-preprints-client/actions/workflows/publish-manuscript.yaml
+- Click: Run workflow
+- Complete the form and click Run workflow
+- A successful run should result in a new workflow at https://github.com/elifesciences/enhanced-preprints-client/pulls
 
 Example pull request: https://github.com/elifesciences/enhanced-preprints-client/pull/334/files
-
-Create a new branch for this commit and start a pull request.
-
-We are working on a github action to allow anyone to create the pull request.
 
 Once the pull request is merged in it should be available a few minutes later.
 
